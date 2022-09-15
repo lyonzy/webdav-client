@@ -57,6 +57,10 @@ function getDirectoryFiles(
             .map(item => {
                 // HREF is the file path (in full)
                 const href = normaliseHREF(item.href);
+                
+                // Cater for paths that are returned encoded
+                href = decodeURIComponent(href);
+                
                 // Each item should contain a stat object
                 const {
                     propstat: { prop: props }
