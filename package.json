@@ -18,7 +18,8 @@
     "test:node:watch": "nodemon --exec 'npm run test:node' --ignore 'dist/'",
     "test:web": "concurrently --success 'first' --kill-others 'npm run test:web:karma' 'npm run test:web:server'",
     "test:web:karma": "karma start test/karma.conf.js",
-    "test:web:server": "node test/server.web.js"
+    "test:web:server": "node test/server.web.js",
+    "postinstall": "npm run clean && run-p build:node build:web"
   },
   "types": "dist/node/index.d.ts",
   "files": [
